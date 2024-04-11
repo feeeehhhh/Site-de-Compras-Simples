@@ -1,0 +1,65 @@
+.compras {
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  gap: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+}
+.compras .compras img {
+  width: 30px;
+  height: 40px;
+}
+
+.compras:hover {
+  background-color: #e9e7e7;
+}
+
+.contain-dialog {
+  display: flex;
+  justify-content: flex-end;
+}
+.contain-dialog .header-cart {
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+.contain-dialog .header-cart #dialog-title {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+}
+.contain-dialog .header-cart .x {
+  color: #fff;
+  background-color: black;
+  border-radius: 40px;
+  font-weight: bold;
+  padding: 2px;
+  max-width: 2px;
+}
+.contain-dialog .dialog-c {
+  background-color: #0f52ba;
+  padding: 0px;
+  max-width: 400px;
+  min-height: 100vh;
+}
+.contain-dialog #dia {
+  margin: 0;
+  padding: 0;
+}
+.contain-dialog #dia .finaliza-b {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 29px 0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+}/*# sourceMappingURL=Cart.css.map */

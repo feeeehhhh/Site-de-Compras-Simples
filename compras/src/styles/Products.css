@@ -1,0 +1,70 @@
+.product-list {
+  display: flex;
+  max-width: 980px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.product-card {
+  display: grid;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 270px;
+  align-items: center;
+  margin-top: 20px;
+}
+.product-card img {
+  width: 110px;
+  height: 125px;
+  margin-left: 25%;
+}
+.product-card .product-info {
+  display: grid;
+  flex-direction: column;
+  gap: 10px;
+}
+.product-card .product-info .titleANDprice {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.product-card .product-info .titleANDprice h3 {
+  font-weight: 700;
+  font-size: 16px;
+}
+.product-card .product-info .titleANDprice p {
+  background-color: #373737;
+  color: #fff;
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: 700;
+  max-height: 25px;
+}
+.product-card .description {
+  font-size: 12px;
+  color: #2c2c2c;
+  padding: 0 10px;
+}
+.product-card .button-purchase {
+  background-color: #0f52ba;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+.product-card .button-purchase img {
+  width: 30px;
+  height: 40px;
+}
+.product-card #my-button.button-purchase:hover {
+  background-color: #9dff9d;
+}/*# sourceMappingURL=Products.css.map */

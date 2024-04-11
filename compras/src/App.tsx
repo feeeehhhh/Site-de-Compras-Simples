@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-} from "@mui/material";
 
-import "./components/Market.scss";
+// Import custom components
+import ProductCard from './components/ProductCard';
+import CartDialog from './components/CartDialog';
+import ProductList from './components/ProductList';
+import CartButton from "./components/CartButton.tsx";
 
-import "./style.scss";
-import buy from "./assets/buy.svg";
-import car from "./assets/carrinho.svg";
-import './components/Market.scss'
 
+import "./styles/style.scss";
+
+
+// Interface for a Product object
 interface Product {
   id: number;
   name: string;
@@ -24,23 +20,34 @@ interface Product {
   photo: string;
 }
 
+// Main App component
 function App() {
+  // State for storing products fetched from the API
   const [produtos, setProdutos] = useState<Product[]>([]);
+
+  // State for controlling the visibility of the cart dialog
   const [open, setOpen] = useState(false);
+
+  // State for storing items in the cart
   const [carItems, setCarItems] = useState<Product[]>([]);
+
+  // Fetch products from the API on component mount
   useEffect(() => {
     fetch(
       "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=6&sortBy=id&orderBy=DESC"
     )
-      .then((response) => response.json())
-      .then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
         setProdutos(data.products);
       });
   }, []);
 
+  // Function to add a product to the cart
   const handleAddToCart = (product: Product) => {
     setCarItems((prevCartItems) => [...prevCartItems, product]);
   };
+
+  // Render the App component
   return (
     <main>
       <nav className="nav">
@@ -49,66 +56,19 @@ function App() {
           <h1 className="sistemlogo">Sistemas</h1>
         </div>
         <div className="compras">
-          <Button onClick={() => setOpen(true)} className="dialog-b">
-            <div className="compras">
-              <img src={car} alt="Compras" />
-              <p>{carItems.length}</p>
-            </div>
-          </Button>
-          <Dialog
-            fullScreen
-            aria-labelledby="dialog-title"
-            aria-describedby="dialog-description"
-            open={open}
-            onClose={() => setOpen(false)}
-            className="teste"
-            PaperProps={{ style: { backgroundColor: "white" } }}
-          >
-            
-            <div className="dialog-c">
-              <DialogTitle id="dialog-title">Carrinho de compras</DialogTitle>
-              <DialogActions><Button onClick={() => setOpen(false)}>X</Button></DialogActions>
-            
-              <DialogContent>
-                <DialogContentText id="dialog-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Doloremque vel officia quam iste ipsum consequatur distinctio
-                  itaque vero! Dolores, laborum.
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions autoFocus id="dia">
-                <a className="finaliza-b" href="#">Finalizar Compra</a>
-              </DialogActions>
-            </div>
-          </Dialog>
+          {/* Render the CartButton component */}
+          <CartButton onClick={() => setOpen(true)} carItems={carItems} />
+          {/* Render the CartDialog component */}
+          <CartDialog open={open} onClose={() => setOpen(false)} carItems={carItems} />
         </div>
       </nav>
       <section className="container-geral">
-        <ul className="groupcards">
-          {produtos.map((i) => {
-            return (
-              <li key={i.id} className="card">
-                <div className="information">
-                  <img src={i.photo} alt={i.name} />
-                  <div className="title-price">
-                    <h3> {i.name}</h3>
-                    <span>R${i.price}</span>
-                  </div>
-                  <p>{i.description}</p>
-                </div>
-                <div className="button">
-                  <img src={buy} alt="buy" />
-                  <a onClick={() => handleAddToCart(i)} href="#">
-                    COMPRAR
-                  </a>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        {/* Render the ProductList component */}
+        <ProductList produtos={produtos} handleAddToCart={handleAddToCart} />
       </section>
     </main>
   );
 }
 
+// Export the App component
 export default App;
