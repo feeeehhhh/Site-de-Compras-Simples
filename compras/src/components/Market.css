@@ -1,0 +1,40 @@
+.dialog-b {
+  background-color: black;
+  color: white;
+}
+
+.dialog-c {
+  background-color: #0F52BA;
+  padding: 0px;
+  max-width: 400px;
+  min-height: 100vh;
+}
+
+.teste {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#dialog-title {
+  color: #fff;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.finaliza-b {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 39px 0;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+#dia {
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=Market.css.map */
