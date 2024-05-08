@@ -16,7 +16,7 @@ A aplicação consiste em site de compras desenvolvido com typescript com 6 opç
 - HTML5 / CSS3 / TS 5.4
 - ReactJS version 18
 - Sass
-
+- Mui
 # Como executar o projeto
 
 ## Front end web
