@@ -52,8 +52,8 @@ function App() {
     <main>
       <nav className="nav">
         <div className="logo">
-          <h1 className="mks">MKS</h1>
-          <h1 className="sistemlogo">Sistemas</h1>
+          <h1 className="mks">Market</h1>
+          <h1 className="sistemlogo">Tech</h1>
         </div>
         <div className="compras">
           

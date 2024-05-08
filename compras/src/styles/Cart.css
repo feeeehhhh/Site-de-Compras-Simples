@@ -62,4 +62,7 @@
   width: 100%;
   font-size: 18px;
   font-weight: 700;
+}
+.contain-dialog #dia .finaliza-b:hover {
+  background-color: rgba(128, 255, 0, 0.5);
 }/*# sourceMappingURL=Cart.css.map */

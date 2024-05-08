@@ -95,7 +95,7 @@ const CartDialog: React.FC<CartDialogProps> = ({ open, onClose, carItems }) => {
             <div className="items">{renderCartItems()}</div>
           </DialogContentText>
           <DialogContentText>
-            <h1>Total a pagar: R$ {total.toFixed(2)}</h1>{" "}
+            <h1 className="total">Total a pagar: <span className="green">R$ {total.toFixed(2)}</span></h1>
           </DialogContentText>
         </DialogContent>
         <DialogActions autoFocus id="dia">

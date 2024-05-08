@@ -1,8 +1,6 @@
 $ColorBlack: #373737;
 
-#dialog-description{
-    margin-top: 10vh;
-}
+
 .items{
     max-height: 400px;
     overflow-y: auto;
@@ -41,4 +39,11 @@ $ColorBlack: #373737;
         }
       }
       
+}
+.total{
+  font-size: 20px;
+  color: #000;
+}
+.green{
+  color: green;
 }
