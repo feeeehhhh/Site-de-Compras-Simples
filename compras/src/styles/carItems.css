@@ -1,0 +1,39 @@
+#dialog-description {
+  margin-top: 10vh;
+}
+
+.items {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.items .car-items {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.items .car-items pad p {
+  color: #000;
+  font-weight: bold;
+}
+.items .car-items .information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.items .car-items .information p {
+  font-weight: 700;
+}
+.items .car-items .information .price {
+  background-color: #373737;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  padding: 0 4px;
+}
+.items .car-items img {
+  max-width: 80px;
+  border-radius: 10px;
+}/*# sourceMappingURL=carItems.css.map */

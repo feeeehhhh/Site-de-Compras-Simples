@@ -1,0 +1,44 @@
+$ColorBlack: #373737;
+
+#dialog-description{
+    margin-top: 10vh;
+}
+.items{
+    max-height: 400px;
+    overflow-y: auto;
+    .car-items {
+        display: flex;
+        background-color: #fff;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        pad p {
+          color: #000;
+          font-weight: bold;
+        }
+        
+
+        
+        .information {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          p{
+              font-weight: 700;
+          }
+          .price {
+            background-color: $ColorBlack;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            max-width: max-content;
+            padding: 0 4px;
+            
+          }
+        }
+        img {
+          max-width: 80px;
+          border-radius: 10px;
+        }
+      }
+      
+}

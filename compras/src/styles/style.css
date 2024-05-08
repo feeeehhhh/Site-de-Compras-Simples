@@ -23,6 +23,7 @@ body {
   justify-content: space-between;
   background-color: #0f52ba;
   padding: 10px 66px;
+  gap: 20px;
 }
 
 .logo {

@@ -7,6 +7,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import { Product } from "../App";
 import "../styles/Cart.scss";
+import "../styles/carItems.scss";
 
 interface CartDialogProps {
   open: boolean;
@@ -14,7 +15,61 @@ interface CartDialogProps {
   carItems: Product[];
 }
 
+interface Product {
+  id: number;
+  name: string;
+  brand: string;
+  price: number;
+  photo: string;
+}
+
 const CartDialog: React.FC<CartDialogProps> = ({ open, onClose, carItems }) => {
+  
+  const countItems = (items: Product[], itemId: number) => {
+    return items.filter((item) => item.id === itemId).length;
+  };
+
+  
+  const renderCartItems = () => {
+    const uniqueItems = Array.from(new Set(carItems.map((item) => item.id)));
+    return uniqueItems.map((itemId) => {
+      const item = carItems.find((item) => item.id === itemId)!;
+      const itemCount = countItems(carItems, itemId);
+      return (
+        <div key={itemId} className="car-items">
+          <img src={item.photo} alt="" className="" />
+          <div className="information">
+            <p>{item.name}</p>
+            <p className="price">R$ {item.price}</p>
+            <p>Quantidade: {itemCount}</p>
+          </div>
+        </div>
+      );
+    });
+  };
+  let total = 0;
+
+  
+  const itemQuantities: { [key: number]: number } = {};
+
+  
+  for (let i = 0; i < carItems.length; i++) {
+    const item = carItems[i];
+    if (itemQuantities[item.id]) {
+      itemQuantities[item.id] += 1;
+    } else {
+      itemQuantities[item.id] = 1;
+    }
+  }
+
+  
+  for (const itemId in itemQuantities) {
+    if (Object.prototype.hasOwnProperty.call(itemQuantities, itemId)) {
+      const item = carItems.find((item) => item.id === parseInt(itemId, 10))!;
+      const itemTotal = item.price * itemQuantities[itemId]; // Multiplicamos o preço pelo quantidade total do item
+      total += itemTotal;
+    }
+  }
   return (
     <Dialog
       fullScreen
@@ -29,15 +84,18 @@ const CartDialog: React.FC<CartDialogProps> = ({ open, onClose, carItems }) => {
         <div className="header-cart">
           <DialogTitle id="dialog-title">Carrinho de compras</DialogTitle>
           <DialogActions>
-            <Button className="x" onClick={onClose}>X</Button>
+            <Button className="x" onClick={onClose}>
+              X
+            </Button>
           </DialogActions>
         </div>
 
         <DialogContent>
           <DialogContentText id="dialog-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            vel officia quam iste ipsum consequatur distinctio itaque vero!
-            Dolores, laborum.
+            <div className="items">{renderCartItems()}</div>
+          </DialogContentText>
+          <DialogContentText>
+            <h1>Total a pagar: R$ {total.toFixed(2)}</h1>{" "}
           </DialogContentText>
         </DialogContent>
         <DialogActions autoFocus id="dia">
